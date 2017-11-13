@@ -17,6 +17,8 @@ function main() {
 
   console.log(boxDimension);
 
+  /* draws a single line with all the boxes
+   they will be split into different lines thanks to the flexbox */
   for (var i = 0; i < boxesPerLine*boxesPerLine; i++) {
     var box = $('<div class="box"></div>');
     box.css('width', boxDimension);
@@ -25,16 +27,10 @@ function main() {
     $('.container').append(box);
   }
 
-}
+  $('.box').hover(function() {
+    $(this).addClass('hovered');
+  });
 
-// for (var j = 0; j < boxesPerLine; j++) {
-//   for (var i = 0; i < boxesPerLine; i++) {
-//     var box = $('<div class="box"></div>');
-//     box.css('width', boxDimension);
-//     box.css('height', boxDimension);
-//
-//     $('.container').append(box);
-//   }
-// }
+}
 
 $(document).ready(main());
