@@ -17,7 +17,7 @@ function main() {
 
   console.log(boxDimension);
 
-  for (var i = 0; i < boxesPerLine; i++) {
+  for (var i = 0; i < boxesPerLine*boxesPerLine; i++) {
     var box = $('<div class="box"></div>');
     box.css('width', boxDimension);
     box.css('height', boxDimension);
@@ -26,5 +26,15 @@ function main() {
   }
 
 }
+
+// for (var j = 0; j < boxesPerLine; j++) {
+//   for (var i = 0; i < boxesPerLine; i++) {
+//     var box = $('<div class="box"></div>');
+//     box.css('width', boxDimension);
+//     box.css('height', boxDimension);
+//
+//     $('.container').append(box);
+//   }
+// }
 
 $(document).ready(main());
