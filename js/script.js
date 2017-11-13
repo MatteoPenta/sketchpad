@@ -1,7 +1,8 @@
 /*
   TO-DOs
-  * Adding columns
-  etc.
+  * Add Draw / Erase buttons
+  * Add New button
+  * Draw only when key pressed
 */
 
 function main() {
