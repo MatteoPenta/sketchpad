@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 10px 0 60px 0;
 }
 
 .container {
@@ -29,6 +29,7 @@ body {
 
 .grid-wrapper {
   height: 960px;
+  box-shadow: 0 0 10px rgba(64, 64, 64, .8);
   display: flex;
   flex-wrap: wrap; /* flex items will wrap onto
   multiple lines, from top to bottom */

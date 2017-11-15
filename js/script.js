@@ -1,6 +1,5 @@
 /*
   TO-DOs
-  * Add New button
   * Draw only when key pressed
 */
 
@@ -32,15 +31,29 @@ function buttonHandler() {
       break;
     case "new":
 
+      newBoxesPerLine = prompt("How many squares per side?");
+
+      // Input control
+      if (!isNaN(newBoxesPerLine)) {
+        eraseGrid();
+        drawGrid(newBoxesPerLine);
+        hoverListener();
+      } else {
+        alert("Please insert a valid value.");
+      }
+
       break;
     default:
 
   }
 }
 
-function main() {
+function eraseGrid() {
+  $('.grid-wrapper').text("");
+}
+
+function drawGrid(boxesPerLine) {
   var container = $('.grid-wrapper');
-  var boxesPerLine = 16; // starting value for n of boxes per each line
 
   // gets the width of the container to set
   // an appropriate width for the boxes based on
@@ -52,17 +65,24 @@ function main() {
 
   /* draws a single line with all the boxes
    they will be split into different lines thanks to the flexbox */
+
+  var box = $('<div class="box"></div>');
   for (var i = 0; i < boxesPerLine*boxesPerLine; i++) {
-    var box = $('<div class="box"></div>');
     box.css('width', boxDimension);
     box.css('height', boxDimension);
-
     $('.grid-wrapper').append(box);
+    box = $('<div class="box"></div>');
   }
+}
+
+
+function hoverListener() {
 
   /* Sets the state of the hovered box accordingly to
   its previous state */
   $('.box').hover(function() {
+    console.log("hovered");
+
     if (state === 'hovered') {
       $(this).addClass('hovered');
     } else {
@@ -70,8 +90,15 @@ function main() {
     }
   });
 
+}
+
+function main() {
+
+  drawGrid(16);
+  hoverListener();
   /* Button Click handlers */
   $('.button').on('click', buttonHandler);
+
 
 }
 
