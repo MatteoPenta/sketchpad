@@ -67,6 +67,7 @@ function drawGrid(boxesPerLine) {
    they will be split into different lines thanks to the flexbox */
 
   var box = $('<div class="box"></div>');
+
   for (var i = 0; i < boxesPerLine*boxesPerLine; i++) {
     box.css('width', boxDimension);
     box.css('height', boxDimension);
@@ -81,10 +82,13 @@ function hoverListener() {
   /* Sets the state of the hovered box accordingly to
   its previous state */
   $('.box').hover(function() {
-    console.log("hovered");
-
     if (state === 'hovered') {
       $(this).addClass('hovered');
+
+      // TO-DO
+      // creates a color variable with random RGB values
+      var color = "rgb("+ Math.floor(Math.random()*255) + ", " + Math.floor(Math.random()*255) + ", " + Math.floor(Math.random()*255) + ")";
+      // $(this).filter('.hovered').css('background-color', color);
     } else {
       $(this).removeClass('hovered');
     }
